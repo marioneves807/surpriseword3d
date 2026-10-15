@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surpriseword3D · Impressão 3D feita à mão</title>
+<meta name="description" content="Produtos impressos em 3D e peças personalizadas. Encomenda por Instagram ou WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plate:#eef1f4; --ink:#17212b; --muted:#5b6773; --card:#ffffff;
+  --fil:#00a896; --fil-dark:#007d70; --line:#d5dbe1;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Figtree','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--plate);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--fil);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* header */
+header{position:sticky;top:0;z-index:5;background:rgba(238,241,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.15rem;text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:22px;font-weight:500;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+@media(max-width:560px){nav a:not(.ig){display:none}}
+
+/* hero: the one memorable moment — headline "prints" layer by layer */
+.hero{padding:72px 0 56px}
+.hero h1{
+  font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:-.035em;
+  font-size:clamp(3rem,11vw,7.6rem);
+  background:
+    repeating-linear-gradient(0deg,transparent 0 .11em,rgba(238,241,244,.55) .11em .125em),
+    linear-gradient(180deg,var(--fil) 0%,var(--ink) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  clip-path:inset(100% 0 0 0);animation:print 2.4s steps(24,end) .2s forwards;
+}
+@keyframes print{to{clip-path:inset(0 0 0 0)}}
+.hero p{max-width:34em;margin-top:26px;font-size:1.15rem;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;padding:13px 24px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font:inherit;font-weight:600;background:none;color:var(--ink)}
+.btn.main{background:var(--ink);color:#fff}
+.btn.main:hover{background:var(--fil-dark);border-color:var(--fil-dark)}
+.btn:hover{border-color:var(--fil-dark)}
+
+/* sections */
+section{padding:56px 0}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.5vw,2.8rem);letter-spacing:-.02em;line-height:1.1}
+.sub{color:var(--muted);margin-top:8px}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0}
+.chip{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);font:inherit;font-size:.92rem;font-weight:500;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+.prod{background:var(--card);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line)}
+.thumb{aspect-ratio:1/1;position:relative;background:var(--c,#cfd8df)}
+.thumb::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.0) 0 5px,rgba(255,255,255,.28) 5px 6px)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+.thumb .shape{position:absolute;left:50%;top:50%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%);background:rgba(23,33,43,.78);border-radius:var(--r,50%);z-index:1}
+.info{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.info h3{font-family:var(--display);font-size:1.15rem;font-weight:500;line-height:1.25}
+.info p{font-size:.92rem;color:var(--muted);flex:1}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.price{font-weight:600;font-size:1.1rem}
+.order{padding:8px 16px;border-radius:8px;background:var(--fil);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.order:hover{background:var(--fil-dark)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;margin-top:30px;counter-reset:s}
+.step{border-top:3px solid var(--ink);padding-top:14px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:2rem;color:var(--fil-dark)}
+.step h3{font-family:var(--display);font-size:1.2rem;margin:4px 0}
+.step p{color:var(--muted);font-size:.95rem}
+
+/* custom block */
+.custom{background:var(--ink);color:#fff;border-radius:18px;padding:44px 32px}
+.custom p{color:#b9c4ce;max-width:36em;margin:10px 0 24px}
+.custom .btn{border-color:#fff;color:#fff}
+.custom .btn.main{background:var(--fil);border-color:var(--fil);color:#fff}
+
+footer{padding:40px 0 50px;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line);margin-top:40px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+
+@media(prefers-reduced-motion:reduce){
+  .hero h1{animation:none;clip-path:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Surpriseword3D</a>
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#encomendar">Como encomendar</a>
+      <a class="ig" id="navIg" href="#" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1>Feito<br>camada<br>a camada.</h1>
+    <p>Objetos úteis, divertidos e personalizados, impressos em 3D por mim. Escolhe uma peça da loja ou pede a tua.</p>
+    <div class="cta">
+      <a class="btn main" href="#produtos">Ver produtos</a>
+      <a class="btn" id="heroIg" href="#" target="_blank" rel="noopener">Seguir no Instagram</a>
+    </div>
+  </div>
+
+  <section id="produtos">
+    <div class="wrap">
+      <h2>Produtos</h2>
+      <p class="sub">Cada peça é impressa depois de encomendada, por isso a cor pode ser escolhida.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por categoria"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="encomendar">
+    <div class="wrap">
+      <h2>Como encomendar</h2>
+      <div class="steps">
+        <div class="step"><h3>Escolhe a peça</h3><p>Carrega em “Encomendar” no produto que quiseres.</p></div>
+        <div class="step"><h3>Envia a mensagem</h3><p>Abre-se o WhatsApp com a mensagem já escrita. Indica a cor e a quantidade.</p></div>
+        <div class="step"><h3>Confirmo e imprimo</h3><p>Combinamos prazo, envio e pagamento. Depois é só esperar pela peça.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="custom">
+        <h2>Tens uma ideia?</h2>
+        <p>Nomes, logótipos, peças de substituição, presentes. Diz-me o que precisas e eu faço um orçamento.</p>
+        <div class="cta" style="margin:0">
+          <a class="btn main" id="customWa" href="#" target="_blank" rel="noopener">Pedir orçamento</a>
+          <a class="btn" id="customIg" href="#" target="_blank" rel="noopener">Mensagem no Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Surpriseword3D</span>
+    <a id="footIg" href="#" target="_blank" rel="noopener">@surpriseword3d no Instagram</a>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO — edita só esta secção
+   ========================================================= */
+const CONFIG = {
+  instagram: "surpriseword3d",   // nome de utilizador, sem @
+  whatsapp: "351900000000"       // número com indicativo, sem + (ex: 351912345678)
+};
+
+/* Produtos. Para usar fotos tuas: cria uma pasta "img" no repositório,
+   coloca lá as fotos e preenche  img: "img/nome-da-foto.jpg"  */
+const PRODUCTS = [
+  { nome:"Vaso geométrico",        cat:"Decoração",   preco:9.50,  desc:"Vaso low-poly para suculentas e plantas pequenas.", cor:"#bfe3dc", forma:"12%", img:"" },
+  { nome:"Suporte de telemóvel",   cat:"Utilidades",  preco:6.00,  desc:"Ajustável, aguenta telemóvel e tablet pequeno.",    cor:"#cfd8e8", forma:"8%",  img:"" },
+  { nome:"Porta-chaves com nome",  cat:"Personalizados", preco:4.00, desc:"Com o nome ou texto que escolheres.",             cor:"#f3d9c4", forma:"50%", img:"" },
+  { nome:"Dragão articulado",      cat:"Brinquedos",  preco:14.00, desc:"Impresso numa só peça e com articulações móveis.",  cor:"#d9e8c4", forma:"30%", img:"" },
+  { nome:"Organizador de secretária", cat:"Utilidades", preco:11.00, desc:"Compartimentos para canetas, clipes e cartões.",  cor:"#e2d4ea", forma:"6%",  img:"" },
+  { nome:"Candeeiro litofania",    cat:"Decoração",   preco:25.00, desc:"Foto tua que aparece quando a luz se acende.",      cor:"#f5ecc0", forma:"10%", img:"" }
+];
+/* ========================================================= */
+
+const ig = "https://instagram.com/" + CONFIG.instagram;
+const wa = (txt) => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(txt);
+const eur = (n) => n.toLocaleString("pt-PT",{style:"currency",currency:"EUR"});
+
+["navIg","heroIg","customIg","footIg"].forEach(id => document.getElementById(id).href = ig);
+document.getElementById("customWa").href = wa("Olá! Gostava de pedir um orçamento para uma peça personalizada.");
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const grid = document.getElementById("grid");
+const filters = document.getElementById("filters");
+let active = "Todos";
+
+function render(){
+  grid.innerHTML = "";
+  PRODUCTS.filter(p => active === "Todos" || p.cat === active).forEach(p => {
+    const el = document.createElement("article");
+    el.className = "prod";
+    const thumb = p.img
+      ? `<div class="thumb"><img src="${p.img}" alt="${p.nome}" loading="lazy"></div>`
+      : `<div class="thumb" style="--c:${p.cor};--r:${p.forma}"><span class="shape"></span></div>`;
+    el.innerHTML = `${thumb}
+      <div class="info">
+        <h3>${p.nome}</h3>
+        <p>${p.desc}</p>
+        <div class="row">
+          <span class="price">${eur(p.preco)}</span>
+          <a class="order" target="_blank" rel="noopener" href="${wa("Olá! Quero encomendar: " + p.nome + " (" + eur(p.preco) + "). Cor e quantidade: ")}">Encomendar</a>
+        </div>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+
+["Todos", ...new Set(PRODUCTS.map(p => p.cat))].forEach(c => {
+  const b = document.createElement("button");
+  b.className = "chip"; b.textContent = c; b.type = "button";
+  b.setAttribute("aria-pressed", c === active);
+  b.onclick = () => {
+    active = c;
+    filters.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+    render();
+  };
+  filters.appendChild(b);
+});
+render();
+</script>
+</body>
+</html>
