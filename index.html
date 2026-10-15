@@ -17,7 +17,7 @@
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);background:linear-gradient(rgba(238,241,244,.85),rgba(238,241,244,.85)),url("img/fundo.jpg") center/cover fixed;color:var(--ink);line-height:1.6;font-size:17px}
+body{font-family:var(--body);background:linear-gradient(rgba(238,241,244,.45),rgba(238,241,244,.45)),url("img/fundo.jpg") center/cover fixed;color:var(--ink);line-height:1.6;font-size:17px}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--fil);outline-offset:3px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
@@ -91,6 +91,19 @@ h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.5vw,2.8re
 footer{padding:40px 0 50px;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line);margin-top:40px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
 
+/* painéis translúcidos: a cor do fundo aparece, o texto continua legível */
+.hero,#produtos .wrap,#encomendar .wrap{
+  width:calc(100% - 24px);
+  background:rgba(238,241,244,.78);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  border-radius:20px;
+  padding:36px 30px;
+}
+.hero{margin-top:28px}
+#produtos .wrap,#encomendar .wrap{margin-bottom:8px}
+footer{background:rgba(238,241,244,.85)}
+
 @media(prefers-reduced-motion:reduce){
   .hero h1{animation:none;clip-path:none}
   html{scroll-behavior:auto}
@@ -157,7 +170,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 <footer>
   <div class="wrap">
     <span>© <span id="year"></span> Surpriseword3D</span>
-    <a id="footIg" href="#" target="_blank" rel="noopener">@surpriseword3d no Instagram</a>
+    <a id="footIg" href="#" target="_blank" rel="noopener">@Surpriseworld3D no Instagram</a>
   </div>
 </footer>
 
